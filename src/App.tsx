@@ -352,30 +352,24 @@ const GoalsView = () => (
 );
 
 const SubscriptionView = () => (
-  <div className="max-w-4xl mx-auto py-8">
+  <div className="max-w-6xl mx-auto py-8">
     <div className="text-center mb-12">
       <h2 className="text-3xl font-bold text-slate-900 mb-4">Elige tu Plan</h2>
       <p className="text-slate-500">Desbloquea todo el potencial de tu arquitectura financiera</p>
-      
-      <div className="flex items-center justify-center gap-4 mt-8">
-        <span className="text-sm font-medium text-slate-600">Mensual</span>
-        <button className="w-12 h-6 bg-primary rounded-full relative p-1">
-          <div className="w-4 h-4 bg-white rounded-full absolute right-1" />
-        </button>
-        <span className="text-sm font-medium text-slate-600">Anual <span className="text-green-600 text-xs bg-green-100 px-2 py-0.5 rounded-full">-20%</span></span>
-      </div>
     </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <Card className="p-8 border-2 border-slate-100">
-        <h3 className="text-xl font-bold mb-2">Plan Básico</h3>
-        <p className="text-slate-500 text-sm mb-6">Para quienes empiezan su camino</p>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Plan Básico */}
+      <Card className="p-8 border-2 border-slate-100 flex flex-col">
+        <div className="mb-6">
+          <h3 className="text-xl font-bold mb-2">Plan Básico</h3>
+          <p className="text-slate-500 text-sm">Para quienes empiezan su camino</p>
+        </div>
         <div className="flex items-baseline gap-1 mb-8">
-          <span className="text-4xl font-bold">$0</span>
-          <span className="text-slate-400">/mes</span>
+          <span className="text-4xl font-bold text-slate-900">Gratis</span>
         </div>
         
-        <ul className="space-y-4 mb-8">
+        <ul className="space-y-4 mb-8 flex-1">
           {['Registro de gastos ilimitado', '3 Metas de ahorro', 'Reportes mensuales básicos', 'Soporte por email'].map((feature) => (
             <li key={feature} className="flex items-center gap-3 text-sm text-slate-600">
               <CheckCircle2 size={18} className="text-slate-300" />
@@ -389,19 +383,22 @@ const SubscriptionView = () => (
         </button>
       </Card>
 
-      <Card className="p-8 border-2 border-primary relative overflow-hidden">
-        <div className="absolute top-0 right-0 bg-primary text-white px-4 py-1 text-xs font-bold rounded-bl-xl">
+      {/* Plan Plus */}
+      <Card className="p-8 border-2 border-primary relative overflow-hidden flex flex-col">
+        <div className="absolute top-0 right-0 bg-primary text-white px-4 py-1 text-[10px] font-bold rounded-bl-xl">
           RECOMENDADO
         </div>
-        <h3 className="text-xl font-bold mb-2">Plan Plus</h3>
-        <p className="text-slate-500 text-sm mb-6">Control total con inteligencia artificial</p>
+        <div className="mb-6">
+          <h3 className="text-xl font-bold mb-2">Plan Plus</h3>
+          <p className="text-slate-500 text-sm">Control avanzado para tus finanzas</p>
+        </div>
         <div className="flex items-baseline gap-1 mb-8">
-          <span className="text-4xl font-bold text-primary">$9.99</span>
-          <span className="text-slate-400">/mes</span>
+          <span className="text-4xl font-bold text-primary">$2.99</span>
+          <span className="text-slate-400 text-sm">/mes</span>
         </div>
         
-        <ul className="space-y-4 mb-8">
-          {['Todo lo del Plan Básico', 'Metas ilimitadas', 'IA de recomendaciones financieras', 'Exportación de datos (PDF/Excel)', 'Soporte prioritario 24/7'].map((feature) => (
+        <ul className="space-y-4 mb-8 flex-1">
+          {['Todo lo del Plan Básico', 'Metas ilimitadas', 'IA de recomendaciones básicas', 'Exportación de datos (PDF)', 'Soporte prioritario'].map((feature) => (
             <li key={feature} className="flex items-center gap-3 text-sm text-slate-600">
               <CheckCircle2 size={18} className="text-primary" />
               {feature}
@@ -411,6 +408,31 @@ const SubscriptionView = () => (
         
         <button className="w-full py-3 rounded-xl bg-primary text-white font-bold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20">
           Mejorar a Plus
+        </button>
+      </Card>
+
+      {/* Plan Premium */}
+      <Card className="p-8 border-2 border-slate-900 bg-slate-900 text-white flex flex-col">
+        <div className="mb-6">
+          <h3 className="text-xl font-bold mb-2">Plan Premium</h3>
+          <p className="text-slate-400 text-sm">Inteligencia artificial de élite</p>
+        </div>
+        <div className="flex items-baseline gap-1 mb-8">
+          <span className="text-4xl font-bold text-white">$5.99</span>
+          <span className="text-slate-400 text-sm">/mes</span>
+        </div>
+        
+        <ul className="space-y-4 mb-8 flex-1">
+          {['Todo lo del Plan Plus', 'IA de predicción de gastos', 'Análisis de patrimonio neto', 'Soporte 24/7 dedicado', 'Sin anuncios'].map((feature) => (
+            <li key={feature} className="flex items-center gap-3 text-sm text-slate-300">
+              <CheckCircle2 size={18} className="text-primary" />
+              {feature}
+            </li>
+          ))}
+        </ul>
+        
+        <button className="w-full py-3 rounded-xl bg-white text-slate-900 font-bold hover:bg-slate-100 transition-colors">
+          Obtener Premium
         </button>
       </Card>
     </div>
